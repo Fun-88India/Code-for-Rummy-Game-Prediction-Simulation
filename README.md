@@ -9,7 +9,26 @@ A <strong><a href="https://link.fun88-india.com/jili-rummy">Rummy game</a></str
  	<li><strong>Scoring System</strong>: A scoring system is crucial to analyze the outcomes of each simulated round. Proper scoring allows the simulator to assess player performance and identify areas for improvement.</li><br>
  	<li><strong>User Interface (UI)</strong>: An optional UI, even if minimalistic, can make simulations more understandable for users who may want to visually follow the game.</li><br>
 </ol>
-<strong>Here's an Example of Basic Code to Set Up a Rummy Deck:</strong>
+<strong>Here's an Example of Basic Code to Set Up a Rummy Deck:</strong><br>
+<strong>import random</strong><br><br>
+
+<strong>class RummyDeck:<br></strong>
+def __init__(self):<br>
+self.suits = ["Hearts", "Diamonds", "Clubs", "Spades"]<br>
+self.values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]<br>
+self.deck = [(suit, value) for suit in self.suits for value in self.values]<br>
+
+def shuffle(self):<br>
+random.shuffle(self.deck)<br>
+
+def deal(self, num_players):<br>
+return [self.deck[i::num_players] for i in range(num_players)]<br>
+
+deck = RummyDeck()<br>
+deck.shuffle()<br>
+hands = deck.deal(4)<br>
+print("Dealt hands:", hands)<br>
+
 <h3>Introducing the Rummy Game Predictor</h3>
 The Rummy game predictor aims to assist players by analyzing current hands and providing insight into the best moves and potential outcomes. Leveraging <a href="https://www.gofun88.in/blog/rummy-ai/"><strong>rummy AI</strong></a>, the predictor examines patterns in card distribution, player behavior, and scoring possibilities.
 <h4>Steps to Build a Rummy Game Predictor</h4>
@@ -20,8 +39,29 @@ The Rummy game predictor aims to assist players by analyzing current hands and
  	<li><strong>Predicting Outcomes</strong>: The predictor should suggest the most strategic moves in real time, such as drawing or discarding certain cards, forming specific melds, and identifying the best time to declare.</li><br>
  	<li><strong>Testing and Optimization</strong>: Continuously test the predictor using the Rummy game simulator to ensure that the AI remains accurate and adapts to new strategies.</li>
 </ol>
-<h3>Example Code Snippet for AI-Powered Prediction</h3>
-The following is a simplified approach to creating an AI model using Python’s scikit-learn library to predict optimal moves. This code assumes that you have already collected labeled data of game states and corresponding player actions.
+<h3>Example Code Snippet for AI-Powered Prediction</h3><br>
+<strong>Python</strong><br>
+from sklearn.ensemble import RandomForestClassifier<br>
+from sklearn.model_selection import train_test_split<br>
+from sklearn.metrics import accuracy_score<br><br>
+
+<strong>Sample data loading</strong><br>
+X - features (game state), y - labels (optimal moves)<br>
+X, y = load_rummy_data()<br><br>
+
+<strong>Split data into training and testing</strong><br>
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)<br><br>
+
+<strong>Train model</strong><br>
+model = RandomForestClassifier(n_estimators=100)<br>
+model.fit(X_train, y_train)<br><br>
+
+<strong>Make predictions</strong><br>
+y_pred = model.predict(X_test)<br><br>
+
+<strong>Evaluate accuracy</strong><br>
+accuracy = accuracy_score(y_test, y_pred)<br>
+print(f"Model Accuracy: {accuracy}")<br><br>
 <div class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary dark:bg-gray-950"></div>
 <h3>AI as a Tool to Become a Rummy Expert</h3>
 AI tools like the Rummy game predictor allow players to see the game from a new perspective. By understanding optimal strategies and moves, players can level up their skills and <a href="https://www.gofun88.in/blog/become-rummy-expert/"><strong>become a rummy expert</strong></a>. These tools enable not only strategic gameplay but also provide a learning platform for players at any experience level.
